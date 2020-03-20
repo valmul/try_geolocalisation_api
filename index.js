@@ -3,6 +3,8 @@ function geoFindMe() {
     const status = document.querySelector('#status');
     const mapLink = document.querySelector('#map-link');
     const preciseP = document.querySelector('#precise-loc');
+    const preciseDetails = document.querySelector('#precise-detail');
+
   
     mapLink.href = '';
     mapLink.textContent = '';
@@ -19,8 +21,19 @@ function geoFindMe() {
     function successPrecise(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
+        const altitude= position.coords.altitude;
+
+        const accuracy = position.coords.accuracy;
+        const altitudeAccuracy = position.coords.altitudeAccuracy;
+        const heading = position.coords.heading;
+        const speed = position.coords.speed;
+
 
         preciseP.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+        preciseDetails.innerHTML = `accuracy: ${accuracy} <BR>`;
+        preciseDetails.innerHTML += `altitude: ${altitude} m, altitude accuracy: ${altitudeAccuracy}  <BR>`;
+        preciseDetails.innerHTML += `heading ${heading}, speed: ${speed}`;
+
       }
   
     function error( err ) {
