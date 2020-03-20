@@ -3,6 +3,14 @@
 - Comment capturer des positions avec le service worker
 - Comment capturer des positions à intervalle régulier ou sur déplacement
 
+# Principes
+Une callback success
+
+Une callback error
+Les causes d'erreur:
+- 1 permsission denied
+- 2 position_unavailable
+- 3 timeout
 
 # Commentaire sur Google
 Pour effectuer des tests, j'ai hébergé mes fichiers dans un bucket google
@@ -19,6 +27,7 @@ Une icône de lien apparaît alors dans le bucket.
 
 ## Améliorations possibles
 - Pour éviter d'être embêter par les délais de mise à jour de cache, il faudrait pouvoir postfixé tous mes fichiers par un numéro de version qui s'incrémente
+    - Pour les tests le plus simple est de créer des répertoires v1, v2, v3
 
 Pour donner un accès public, pour le user allUsers donner un accès en lecture
 Une icône de lien apparaît alors dans le bucket.
@@ -32,8 +41,10 @@ Liste de mes valeurs sur le téléphone:
         position.coords.longitude OK
         position.coords.altitude OK
 
-        position.coords.accuracy OK  14,6 à l'intérieur de la maison
-        position.coords.altitudeAccuracy : null
+        position.coords.accuracy OK  14,6 à l'intérieur de la maison exprimée en mètres
+        position.coords.altitudeAccuracy : null exprimées en mètre
         position.coords.heading : null à tester lors d'un mouvement
         position.coords.speed: null  à tester lors d'un mouvement
+
+        timestamp de la mesure
 
